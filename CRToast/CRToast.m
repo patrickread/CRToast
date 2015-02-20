@@ -1042,7 +1042,7 @@ static CGFloat const CRStatusBarViewUnderStatusBarYOffsetAdjustment = -5;
         self.subtitleLabel = subtitleLabel;
         
         UIView *contentView = [[UIView alloc] initWithFrame:CGRectZero];
-        contentView.userInteractionEnabled = NO;
+        contentView.userInteractionEnabled = YES;
         [self addSubview:contentView];
         self.contentView = contentView;
         
@@ -1458,7 +1458,10 @@ CRToastAnimationStepBlock CRToastOutwardAnimationsSetupBlock(CRToastManager *wea
     self.statusBarView = statusBarView;
     
     for (UIView *subview in _notificationWindow.rootViewController.view.subviews) {
-        subview.userInteractionEnabled = NO;
+        // Enable buttons
+        if ([subview isKindOfClass:[UIButton class]]) {
+            subview.userInteractionEnabled = YES;
+        }
     }
     
     _notificationWindow.rootViewController.view.userInteractionEnabled = YES;
