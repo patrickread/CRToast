@@ -1070,9 +1070,9 @@ static CGFloat const CRStatusBarViewUnderStatusBarYOffsetAdjustment = -5;
 
     
     if (self.toast.contentViewConfigurationBlock) {
-        self.contentView.frame = CGRectMake(CGRectGetWidth(contentFrame)-CGRectGetHeight(contentFrame)-kCRStatusBarViewNoImageRightContentInset,
-                                            statusBarYOffset,
-                                            CGRectGetHeight(contentFrame),
+        self.contentView.frame = CGRectMake(0,
+                                            0,
+                                            CGRectGetWidth(contentFrame),
                                             CGRectGetHeight(contentFrame));
         self.toast.contentViewConfigurationBlock(self.contentView);
     }
